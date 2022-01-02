@@ -9,3 +9,11 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Score(models.Model):
+    score = models.DecimalField(max_digits=3, decimal_places=1)
+    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.score
