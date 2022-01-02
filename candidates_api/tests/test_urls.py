@@ -1,22 +1,3 @@
-from django.test import TestCase
-
-
-#####################
-# 1- Testing Models #
-################################
-# 1-a- Testing Candidate Model #
-################################
-# candidate_ref must be a unique sequence of 8 digits and alphabets.
-
-
-############################
-# 1-b- Testing Score Model #
-############################
-# score must be float between 0 - 100 inclusive.
-
-
-# score must be stored in a list.
-
 
 #########################
 # 2- Testing Endpoints  #
