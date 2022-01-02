@@ -12,8 +12,8 @@ class Candidate(models.Model):
 
 
 class Score(models.Model):
-    score = models.DecimalField(max_digits=3, decimal_places=1)
+    score = models.FloatField(max_length=3)
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def __float__(self):
         return self.score
