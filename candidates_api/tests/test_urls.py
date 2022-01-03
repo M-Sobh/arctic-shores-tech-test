@@ -1,9 +1,11 @@
+from django.test import TestCase
 
-#########################
-# 2- Testing Endpoints  #
-##################################
-# 2-a- Testing /create-candidate #
-##################################
+
+###############
+#  Endpoints  #
+#####################
+# /create-candidate #
+#####################
 # Response with 201 code
 
 
@@ -13,9 +15,9 @@
 # Handle duplicate values (check if candidate_ref already exist) respond with status code (409)conflict
 
 
-###############################
-# 2-b- Testing /create-score  #
-###############################
+###################
+#  /create-score  #
+###################
 # Respond with status code (201)
 
 
@@ -28,9 +30,9 @@
 # Score must be pushed and stored into a list.
 
 
-################################################
-# 2-c- Testing /get-candidate/{candidate_ref}  #
-################################################
+####################################
+#  /get-candidate/{candidate_ref}  #
+####################################
 # Respond with status code (200).
 
 

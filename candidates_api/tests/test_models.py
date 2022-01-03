@@ -1,7 +1,7 @@
 from django.test import TestCase
 from candidates_api.models import Candidate, Score
 
-# 1-a- Testing Candidate Model #
+# Candidate Model #
 ################################
 # candidate_ref must be a unique sequence of 8 digits and alphabets.
 
@@ -16,7 +16,7 @@ class CandidateTest(TestCase):
         self.assertEqual(w.__str__(), w.name)
 
 ############################
-# 1-b- Testing Score Model #
+# Score Model #
 ############################
 # score must be float between 0 - 100 inclusive.
 
