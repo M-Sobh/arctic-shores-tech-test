@@ -17,3 +17,16 @@ def api_create_candidate_view(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Endpoint /get-candidate/{candidate_ref}
+
+@api_view(['GET', ])
+def api_get_candidate_by_ref(request, candidate_ref):
+    try:
+        candidate = Candidate.objects.get(candidate_ref=candidate_ref)
+    except Candidate.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = CandidateSerializer(candidate)
+        return Response(serializer.data)
