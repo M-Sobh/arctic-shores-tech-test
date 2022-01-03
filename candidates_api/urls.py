@@ -1,8 +1,8 @@
-from django.urls import path
-from .views import create_candidate, create_score, get_candidate_by_ref
+from django.urls import path, include
+from .views import api_create_candidate_view
+
 
 urlpatterns = [
-    path('create-candidate/', create_candidate),
-    path('create-score/', create_score),
-    path('get-candidate/<candidate_ref>', get_candidate_by_ref)
+    path('create-candidate/', api_create_candidate_view),
+
 ]

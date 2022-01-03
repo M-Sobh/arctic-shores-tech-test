@@ -1,18 +1,19 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+from .serializers import CandidateSerializer, ScoreSerializer
+from .models import Candidate, Score
 
 
-def create_candidate(request):
-    message = f'New Candidate Created'
-    return HttpResponse(message)
+# Endpoint /create-candidate
+@api_view(['POST', ])
+def api_create_candidate_view(request):
+    if request.method == 'POST':
+        candidate = Candidate.objects.get(pk=1)
 
-
-def create_score(request):
-    message = f'New Score Added'
-    return HttpResponse(message)
-
-
-def get_candidate_by_ref(request, candidate_ref):
-    message = f'Candidate of reference {candidate_ref} successfully hooked'
-    return HttpResponse(message)
+        serializer = CandidateSerializer(candidate, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
